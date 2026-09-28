@@ -1,0 +1,22 @@
+[
+  {
+    "pregunta": "¿Qué librería usa FastAPI en el ejemplo de OAuth2 con JWT para hashear las contraseñas?",
+    "documento_id_esperado": "fastapi_tutorial_security_oauth2-jwt.md"
+  },
+  {
+    "pregunta": "¿Cómo se implementa una dependencia con setup y cleanup usando yield en FastAPI?",
+    "documento_id_esperado": "fastapi_tutorial_dependencies_dependencies-with-yield.md"
+  },
+  {
+    "pregunta": "¿Cómo se usa APIRouter para separar las rutas de una aplicación FastAPI en varios archivos?",
+    "documento_id_esperado": "fastapi_tutorial_bigger-applications.md"
+  },
+  {
+    "pregunta": "¿Cómo se define un endpoint de WebSocket en FastAPI y cómo se aceptan las conexiones entrantes?",
+    "documento_id_esperado": "fastapi_advanced_websockets.md"
+  },
+  {
+    "pregunta": "¿Cómo se ejecutan tareas en segundo plano después de devolver la respuesta en FastAPI usando BackgroundTasks?",
+    "documento_id_esperado": "fastapi_tutorial_background-tasks.md"
+  }
+]
