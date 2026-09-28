@@ -91,6 +91,17 @@ motor de inferencia.
   chunk_size=650, overlap=100). Token count por chunk: **min=112,
   avg=556.1, max=630** (el min bajo corresponde a los chunks finales de
   archivos cortos como `static-files.md`).
+- **Metadatos por chunk** (se guardan en cada vector de Pinecone y también
+  en los `Document` que consume BM25):
+  - `source`: nombre del `.md` original (ej. `fastapi_advanced_websockets.md`).
+    Es lo que compara `evaluate.py` contra `documento_id_esperado`.
+  - `chunk_index`: posición del chunk dentro del archivo (empieza en 0).
+  - `category`: derivada del prefijo del archivo — `"tutorial"` para
+    `fastapi_tutorial_*`, `"advanced"` para `fastapi_advanced_*`, y
+    `"other"` como fallback. Sobre el corpus actual quedan 57 chunks
+    `tutorial` y 9 `advanced`. Útil para filtrar por sección en el futuro
+    sin re-ingestar.
+  - `token_count`: largo del chunk en tokens `cl100k_base`.
 
 ## Ingesta con rate limit del free tier
 

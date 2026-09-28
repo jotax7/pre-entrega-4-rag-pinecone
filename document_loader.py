@@ -40,6 +40,17 @@ def _token_length(text: str) -> int:
     return len(_get_encoding().encode(text))
 
 
+def _category_for(source_name: str) -> str:
+    """Deriva la categoría del prefijo del archivo. Coincide con la
+    estructura del corpus de FastAPI: fastapi_tutorial_* / fastapi_advanced_*.
+    Sirve para filtrar por sección en el futuro sin tocar el índice."""
+    if source_name.startswith("fastapi_tutorial_"):
+        return "tutorial"
+    if source_name.startswith("fastapi_advanced_"):
+        return "advanced"
+    return "other"
+
+
 def load_and_chunk(data_dir: str = config.DATA_DIR) -> List[Document]:
     """
     Lee todos los .md de data_dir, los separa en chunks de ~650 tokens
@@ -76,7 +87,7 @@ def load_and_chunk(data_dir: str = config.DATA_DIR) -> List[Document]:
                     metadata={
                         "source": source_name,
                         "chunk_index": i,
-                        "category": "python-library-docs",
+                        "category": _category_for(source_name),
                         "token_count": _token_length(chunk_text),
                     },
                 )
